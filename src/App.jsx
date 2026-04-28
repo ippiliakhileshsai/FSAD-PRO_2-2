@@ -2,10 +2,8 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import PageTransition from './components/layout/PageTransition';
-import ProtectedRoute from './components/layout/ProtectedRoute';
 import Toast from './components/ui/Toast';
 import Spinner from './components/ui/Spinner';
-import { AuthProvider } from './providers';
 
 // Lazy load pages for code splitting
 const Landing = lazy(() => import('./pages/Landing'));
@@ -72,7 +70,6 @@ export default function App() {
   return (
     <ErrorBoundary>
       <Router>
-      <AuthProvider>
         <Navbar />
         <Toast />
         <Suspense fallback={<LoadingFallback />}>
@@ -80,27 +77,13 @@ export default function App() {
           <Routes>
             {/* PUBLIC ROUTES */}
             <Route path="/" element={<Landing />} />
-            <Route path="/auth" element={<AuthPage />} />
-            <Route path="/login" element={<AuthPage />} />
-            <Route path="/signup" element={<AuthPage />} />
+            <Route path="/auth" element={<Dashboard />} />
+            <Route path="/login" element={<Dashboard />} />
+            <Route path="/signup" element={<Dashboard />} />
 
-            {/* PROTECTED ROUTES */}
-            <Route
-              path="/dashboard"
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/account"
-              element={
-                <ProtectedRoute>
-                  <AccountPage />
-                </ProtectedRoute>
-              }
-            />
+            {/* DASHBOARD ROUTES */}
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/account" element={<AccountPage />} />
 
             {/* FEATURE ROUTES */}
             <Route path="/feature/mental-health" element={<MentalHealth />} />
@@ -110,21 +93,13 @@ export default function App() {
             <Route path="/feature/self-healing" element={<SelfHealing />} />
 
             {/* ADMIN ROUTE */}
-            <Route
-              path="/admin"
-              element={
-                <ProtectedRoute adminOnly>
-                  <Admin />
-                </ProtectedRoute>
-              }
-            />
+            <Route path="/admin" element={<Admin />} />
 
             {/* 404 */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </PageTransition>
       </Suspense>
-      </AuthProvider>
     </Router>
     </ErrorBoundary>
   );

@@ -45,27 +45,16 @@ export default function Navbar() {
               <Search size={20} />
             </button>
             
-            {user ? (
-              <div className="user-menu">
-                <button className="navbar-icon-button" aria-label="Account">
-                  <User size={20} />
-                </button>
-                <div className="user-dropdown">
-                  <Link to="/dashboard">Dashboard</Link>
-                  {user?.role === 'admin' && (
-                    <Link to="/admin">Admin Panel</Link>
-                  )}
-                  <button onClick={handleLogout}>
-                    <LogOut size={16} />
-                    Logout
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <Link to="/login" className="navbar-icon-button" aria-label="Login">
+            <div className="user-menu">
+              <button className="navbar-icon-button" aria-label="Account">
                 <User size={20} />
-              </Link>
-            )}
+              </button>
+              <div className="user-dropdown">
+                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/admin">Admin Panel</Link>
+                <Link to="/account">Account Settings</Link>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
@@ -119,26 +108,7 @@ export default function Navbar() {
                 </Link>
               ))}
             </nav>
-            {!user && (
-              <div style={{ marginTop: 'var(--space-8)', display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-                <Link 
-                  to="/login" 
-                  className="btn btn-primary"
-                  onClick={() => setMenuOpen(false)}
-                  style={{ textAlign: 'center' }}
-                >
-                  Sign In
-                </Link>
-                <Link 
-                  to="/signup" 
-                  className="btn btn-secondary"
-                  onClick={() => setMenuOpen(false)}
-                  style={{ textAlign: 'center' }}
-                >
-                  Create Account
-                </Link>
-              </div>
-            )}
+
           </div>
         </>
       )}

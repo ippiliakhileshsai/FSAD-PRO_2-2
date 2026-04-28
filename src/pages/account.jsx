@@ -1,4 +1,4 @@
-import { AccountView } from "@neondatabase/auth-ui";
+
 import Footer from "../components/layout/Footer";
 
 export default function AccountPage() {
@@ -19,7 +19,7 @@ export default function AccountPage() {
             Account Settings
           </h1>
           <div className="dashboard-card" style={{ padding: 'var(--space-6)' }}>
-            <AccountView />
+            <p>Account functions have been disabled securely.</p>
           </div>
         </div>
       </div>
