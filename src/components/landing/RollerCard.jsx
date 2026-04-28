@@ -11,32 +11,26 @@ export default function RollerCard({
 }) {
   const navigate = useNavigate();
 
-  // Theme colors for card backgrounds
-  const themeColors = {
-    navy: 'linear-gradient(135deg, #0D2C54, #2A4A70)',
-    sage: 'linear-gradient(135deg, #4A6B5C, #7A9B8A)',
-    gold: 'linear-gradient(135deg, #A67C52, #D4B896)',
-    lavender: 'linear-gradient(135deg, #6B5B95, #A393C8)',
-    'sage-light': 'linear-gradient(135deg, #5F8170, #8FA89E)',
+  // Map features to their real images
+  const imageMap = {
+    'mental-health': '/images/mental-health.png',
+    'therapy': '/images/therapy.png',
+    'support-groups': '/images/support.png',
+    'character': '/images/character.png',
+    'self-healing': '/images/healing.png',
   };
-  
+
   return (
     <div 
       className={`roller-card card-${theme}`}
       onClick={() => navigate(route)}
     >
       <div className="roller-card-image-wrapper">
-        {/* Gradient placeholder instead of images */}
-        <div 
+        <img 
+          src={imageMap[id]} 
+          alt={title}
           className="roller-card-image"
-          style={{ 
-            background: themeColors[theme] || themeColors.navy,
-            width: '100%',
-            height: '100%',
-            position: 'absolute',
-            top: 0,
-            left: 0
-          }}
+          loading="lazy"
         />
         <div className="roller-card-overlay">
           <div className="roller-card-label">{label}</div>
