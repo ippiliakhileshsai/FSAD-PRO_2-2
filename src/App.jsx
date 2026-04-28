@@ -5,11 +5,12 @@ import PageTransition from './components/layout/PageTransition';
 import ProtectedRoute from './components/layout/ProtectedRoute';
 import Toast from './components/ui/Toast';
 import Spinner from './components/ui/Spinner';
+import { AuthProvider } from './providers';
 
 // Lazy load pages for code splitting
 const Landing = lazy(() => import('./pages/Landing'));
-const Login = lazy(() => import('./pages/Login'));
-const Signup = lazy(() => import('./pages/Signup'));
+const AuthPage = lazy(() => import('./pages/auth'));
+const AccountPage = lazy(() => import('./pages/account'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const MentalHealth = lazy(() => import('./pages/MentalHealth'));
 const Therapy = lazy(() => import('./pages/Therapy'));
@@ -46,15 +47,17 @@ function LoadingFallback() {
 export default function App() {
   return (
     <Router>
-      <Navbar />
-      <Toast />
-      <Suspense fallback={<LoadingFallback />}>
-        <PageTransition>
+      <AuthProvider>
+        <Navbar />
+        <Toast />
+        <Suspense fallback={<LoadingFallback />}>
+          <PageTransition>
           <Routes>
             {/* PUBLIC ROUTES */}
             <Route path="/" element={<Landing />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/login" element={<AuthPage />} />
+            <Route path="/signup" element={<AuthPage />} />
 
             {/* PROTECTED ROUTES */}
             <Route
@@ -62,6 +65,14 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/account"
+              element={
+                <ProtectedRoute>
+                  <AccountPage />
                 </ProtectedRoute>
               }
             />
@@ -88,6 +99,7 @@ export default function App() {
           </Routes>
         </PageTransition>
       </Suspense>
+      </AuthProvider>
     </Router>
   );
 }
