@@ -1,0 +1,171 @@
+:root {
+  /* FOUNDATIONAL COLORS */
+  --aura-pure-white: #FFFFFF;
+  --aura-off-white: #F9F9F9;
+  --aura-cream: #F5F3F0;
+  --aura-deep-black: #0A0A0A;
+  --aura-charcoal: #1C1C1C;
+
+  /* FEATURE THEME COLORS */
+  /* Mental Health Issues (Trust & Stability) */
+  --aura-navy-deep: #0D2C54;
+  --aura-navy-mid: #1a3a5c;
+  --aura-navy-light: #2A4A70;
+
+  /* Virtual Therapy (Healing & Growth) */
+  --aura-sage-deep: #4A6B5C;
+  --aura-sage-mid: #5F8170;
+  --aura-sage-light: #7A9B8A;
+
+  /* Support Groups (Warmth & Community) */
+  --aura-gold-deep: #A67C52;
+  --aura-gold-mid: #C49A6C;
+  --aura-gold-accent: #D4B896;
+
+  /* Character Decode (Calm & Insight) */
+  --aura-lavender-deep: #6B5B95;
+  --aura-lavender-mid: #8774B3;
+  --aura-lavender-light: #A393C8;
+
+  /* Self-Healing (Peace & Growth) */
+  --aura-sage-lighter: #8FA89E;
+
+  /* Crisis/Admin (Urgent Action) */
+  --aura-crimson-deep: #8B2E3E;
+  --aura-crimson-mid: #A64456;
+  --aura-crimson-light: #C16273;
+
+  /* FUNCTIONAL COLORS */
+  --aura-text-primary: #0A0A0A;
+  --aura-text-secondary: #4A4A4A;
+  --aura-text-tertiary: #7A7A7A;
+  --aura-border-subtle: #E5E5E5;
+  --aura-border-medium: #CCCCCC;
+
+  /* SUCCESS/ERROR/WARNING/INFO */
+  --aura-success: #4CAF50;
+  --aura-error: #F44336;
+  --aura-warning: #FF9800;
+  --aura-info: #2196F3;
+
+  /* OVERLAYS & SHADOWS */
+  --aura-overlay-dark: rgba(10, 10, 10, 0.75);
+  --aura-overlay-light: rgba(255, 255, 255, 0.90);
+  --aura-shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --aura-shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.12);
+  --aura-shadow-strong: 0 16px 64px rgba(0, 0, 0, 0.16);
+
+  /* TYPOGRAPHY */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', Monaco, 'Courier New', monospace;
+
+  /* FONT SIZES */
+  --font-size-display-xl: 72px;
+  --font-size-display-lg: 64px;
+  --font-size-display-md: 56px;
+  --font-size-h1: 48px;
+  --font-size-h2: 40px;
+  --font-size-h3: 32px;
+  --font-size-h4: 24px;
+  --font-size-h5: 20px;
+  --font-size-h6: 18px;
+  --font-size-body-lg: 18px;
+  --font-size-body-md: 16px;
+  --font-size-body-sm: 14px;
+  --font-size-body-xs: 12px;
+
+  /* LINE HEIGHTS */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* LETTER SPACING */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.04em;
+  --letter-spacing-wider: 0.08em;
+
+  /* FONT WEIGHTS */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* SPACING SCALE (8px base) */
+  --space-0: 0px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-7: 56px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-16: 128px;
+  --space-20: 160px;
+  --space-24: 192px;
+  --space-32: 256px;
+
+  /* BREAKPOINTS */
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
+
+  /* CONTAINER */
+  --container-max-width: 1440px;
+  --container-padding-xs: 20px;
+  --container-padding-sm: 32px;
+  --container-padding-md: 48px;
+  --container-padding-lg: 64px;
+
+  /* TRANSITIONS */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --duration-instant: 100ms;
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 800ms;
+  --duration-slowest: 1200ms;
+
+  /* Z-INDEX SCALE */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* RESPONSIVE FONT SIZES */
+@media (max-width: 767px) {
+  :root {
+    --font-size-display-xl: 40px;
+    --font-size-display-lg: 36px;
+    --font-size-display-md: 32px;
+    --font-size-h1: 32px;
+    --font-size-h2: 28px;
+    --font-size-h3: 24px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --font-size-display-xl: 56px;
+    --font-size-display-lg: 48px;
+    --font-size-display-md: 40px;
+    --font-size-h1: 40px;
+    --font-size-h2: 32px;
+  }
+}
