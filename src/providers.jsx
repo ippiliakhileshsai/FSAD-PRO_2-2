@@ -7,7 +7,7 @@ export function AuthProvider({ children }) {
 
   return (
     <NeonAuthUIProvider
-      authClient={authClient}
+      authClient={authClient.auth || authClient}
       navigate={navigate}
       replace={(path) => navigate(path, { replace: true })}
       onSessionChange={() => {}}

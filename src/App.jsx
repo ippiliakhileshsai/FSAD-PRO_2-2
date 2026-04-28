@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import PageTransition from './components/layout/PageTransition';
@@ -44,9 +44,34 @@ function LoadingFallback() {
   );
 }
 
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: '20px', color: 'red', fontFamily: 'monospace' }}>
+          <h2>Something went wrong.</h2>
+          <pre>{this.state.error.toString()}</pre>
+          <pre>{this.state.error.stack}</pre>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 export default function App() {
   return (
-    <Router>
+    <ErrorBoundary>
+      <Router>
       <AuthProvider>
         <Navbar />
         <Toast />
@@ -101,5 +126,6 @@ export default function App() {
       </Suspense>
       </AuthProvider>
     </Router>
+    </ErrorBoundary>
   );
 }
