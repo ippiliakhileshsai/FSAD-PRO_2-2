@@ -9,7 +9,7 @@
 </h1>
 
 <h3 align="center">
-  <em>A Premium Student Mental Health Platform</em>
+  <em>A  Student Mental Health Platform</em>
 </h3>
 
 <p align="center">
